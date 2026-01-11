@@ -33,9 +33,9 @@ at::Tensor ms_deform_attn_cuda_forward(
     AT_ASSERTM(attn_weight.is_contiguous(), "attn_weight tensor has to be contiguous");
 
     AT_ASSERTM(value.is_cuda(), "value must be a CUDA tensor");
-    AT_ASSERTM(spatial_shapes.(), "spatial_shapes must be a CUDA tensor");
-    AT_ASSERTM(level_start_index.(), "level_start_index must be a CUDA tensor");
-    AT_ASSERTM(sampling_loc.(), "sampling_loc must be a CUDA tensor");
+    AT_ASSERTM(spatial_shapes.is_cuda(), "spatial_shapes must be a CUDA tensor");
+    AT_ASSERTM(level_start_index.is_cuda(), "level_start_index must be a CUDA tensor");
+    AT_ASSERTM(sampling_loc.is_cuda(), "sampling_loc must be a CUDA tensor");
     AT_ASSERTM(attn_weight.is_cuda(), "attn_weight must be a CUDA tensor");
 
     const int batch = value.size(0);
